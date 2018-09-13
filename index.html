@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>svideo</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="node_modules/react/dist/react.js"></script>
+  <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  <script>
+    const MyTitle = function(props) {
+      console.log(props);
+      return (
+        React.createElement('div', { id: "i-am-title" } ,
+          React.createElement('h4', null, props.title)
+        )
+      )
+    }
+    const MyFirstComponent = function() {
+      return React.createElement('div', { id: "my-first-component", className: "hola" },
+        // React.createElement('h1', null, 'Hi I am the first component')
+        React.createElement(MyTitle, { title: "Game of Thrones" }),
+        React.createElement(MyTitle, { title: "Rick and Morty" }),
+        React.createElement(MyTitle, { title: "Silicon Valley" }),
+        React.createElement(MyTitle, { title: "F.R.I.E.N.D.S" })
+      )
+    }
+    ReactDOM.render(
+      React.createElement(MyFirstComponent),
+      document.getElementById('app')
+    )
+  </script>
+</body>
+</html>
